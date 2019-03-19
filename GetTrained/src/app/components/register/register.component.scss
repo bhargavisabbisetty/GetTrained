@@ -1,0 +1,36 @@
+mat-form-field.mat-form-field {
+  font-size: 16px;
+  color: #1a3741;
+}
+
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.full-width {
+  width: 90%;
+  margin: auto 5% auto 5%;
+}
+
+.user-registration-container{
+  background-color: #f3D410;
+    border-radius: 10px;
+    width: 40%;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+} 
+button{
+  background-color: #1a3741;
+  color: #f3D410;
+  width: 20%;
+  margin: 1em auto 2em 19%;
+}
+h2{
+  margin: 1em 37% 0.5em 37%;
+  font-weight: bold;
+}
+mat-label{
+  text-transform: uppercase;
+}

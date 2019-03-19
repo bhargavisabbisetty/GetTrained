@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    background: #F2F2F2;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 1em 1em 0 1em;
+
+    li {
+        a {
+            color: #1A3741;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+}
+
+.course-buttons{
+    margin: 1em 1em 1em 1em;
+    background-color: #1A3741;
+    color: #F3D410;
+}
+
+.mat-typography{
+    margin: 1em 1em 1em 1em;
+}

@@ -1,0 +1,50 @@
+<mat-card-content>
+  <form #slideContent="ngForm" class="myForm">
+
+    <div class="slide-content-container">
+      <div class="left-column">
+        <mat-form-field class="left-column-input">
+          <mat-label>TITLE</mat-label>
+          <input matInput #slide_title="ngModel" [(ngModel)]="title" name="slide_title" required [ngClass]="{'invalid-textbox': slideContent.submitted && !slide_title.valid}">
+        </mat-form-field>
+        <br>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" #inputImg hidden>
+        <button mat-stroked-button (click)="inputImg.click()">SELECT IMAGE</button>
+        <br>
+        <mat-form-field class="left-column-input">
+          <mat-label>VIDEO URL</mat-label>
+          <input matInput #slide_video="ngModel" [(ngModel)]="video" name="slide_video">
+        </mat-form-field>
+      </div>
+      <div class="right-column">
+        <mat-form-field class="right-column-input">
+          <mat-label>CONTENT</mat-label>
+          <input matInput #slide_content="ngModel" [(ngModel)]="text" name="slide_content">
+        </mat-form-field>
+        <button mat-icon-button (click)="onAddText()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <!--<button mat-raised-button color="primary" (click)="onRemoveText()">Remove</button>-->
+        <br>
+        <mat-list>
+          <mat-list-item *ngFor="let content of textContent">
+            <p class="content-list">{{ content }}</p>
+            <button mat-icon-button (click)="onRemoveText(content)"><mat-icon>remove</mat-icon></button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div>
+        <div class="delete-slide-div">
+          <button mat-mini-fab (click)="onDeleteSlide()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <div class="save-slide-div">
+          <button mat-mini-fab (click)="onSaveSlide()">
+            <mat-icon>check</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-card-content>

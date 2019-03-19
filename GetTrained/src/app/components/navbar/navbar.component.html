@@ -1,0 +1,13 @@
+<mat-toolbar *ngIf="isLoggedIn()">
+  <mat-toolbar-row>
+    <p class="app-name" (click)="gotoDashBoard()">GetTrained</p>
+    <span class="example-spacer"></span>
+
+    <button mat-button *ngIf="isAdmin()" (click)="gotoCategories()">Category</button>
+    <button mat-button (click)="gotoCourses()" *ngIf="!isAdmin()">Course Creation</button>
+    <button mat-button (click)="gotoCreateFeedback()" *ngIf="!isAdmin()">Add Feedback</button>
+    <button mat-button *ngIf="isAdmin()" (click)="gotoViewFeedback()">View Feedback</button>
+    <button mat-button (click)="logout()">Logout</button>
+
+  </mat-toolbar-row>
+</mat-toolbar>

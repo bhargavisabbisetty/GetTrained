@@ -1,0 +1,27 @@
+<div *ngIf="! enrolledCourses">
+  <h1>{{ noCourseMessage }}</h1>
+</div>
+<div class="card" *ngFor="let courses of enrolledCourses">
+    <div class="card-header">
+        <div id="title">
+            {{courses.course.course_title}}
+        </div>
+    </div>
+
+    <div class="card-content">
+        <div id="content">
+            {{courses.course.course_description}}
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="progress">
+            <p class="text-progress">{{courses.progress * 100 /(courses.course.course_contents.length-1) }}% completed</p>
+        </div>
+        <div class="gettrained">
+                    <button mat-raised-button class = "gettrained-button" (click)="gotoView(courses)"> {{courses.progress == 0? "GET TRAINED" : courses.progress == courses.course.course_contents.length-1 && courses.lastSlideIndex == courses.course.course_contents.length-1 ? "FINISH" : "CONTINUE"}}
+            </button>
+        </div>
+    </div>
+
+</div>

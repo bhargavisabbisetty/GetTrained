@@ -1,0 +1,30 @@
+mat-form-field.mat-form-field {
+    font-size: 16px;
+  }
+  
+  .my-form{
+    width: 95%;
+    margin:1em 1em 1em 1em;
+  }
+  .full-width {
+    width: 100%;
+  }
+  .mat-typography{
+    margin: 1em 1em 1em 1em;
+}
+.full-width{
+  width: 30%;
+}
+.full-width-fields{
+  width: 100%;
+}
+mat-label{
+  text-transform: uppercase;
+}
+
+.query-buttons{
+  margin: 1em 1em auto auto;
+  background-color: #1A3741;
+  color: #F3D410;
+  width: 10%;
+}

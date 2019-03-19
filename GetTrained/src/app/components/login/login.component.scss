@@ -1,0 +1,39 @@
+mat-form-field.mat-form-field {
+    font-size: 16px;
+    color: #1a3741;
+  }
+  .full-width {
+    width: 90%;
+    margin: auto 5% auto 5%;
+  }
+  .main-login-container{
+    background-color: #f3D410;
+    border-radius: 10px;
+    width: 40%;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+  }
+ .my-form{
+    margin: 2em 2em 2em 2em;
+  }
+  button{
+    background-color: #1a3741;
+    color: #f3D410;
+    width: 20%;
+    margin: 1em 37% auto 37%;
+  }
+  img{
+    display: inline;
+  }
+  .new-user{
+    margin: auto 34% 2em 34%;
+    font-weight: bold;
+  }
+
+  mat-label{
+    text-transform: uppercase;
+  }
+img{
+  margin: auto 24% 1em 24%;
+}

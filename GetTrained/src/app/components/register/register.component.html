@@ -1,0 +1,60 @@
+<div class="user-registration-container">
+  <h2>Register</h2>
+  <mat-card-content>
+    <form #registerForm="ngForm" (ngSubmit)="registerForm.valid && onSubmit(registerForm)" class="my-form">
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput #first_name="ngModel" [(ngModel)]="userService.selectedUser.first_name" name="first_name"
+            placeholder="First Name" required [ngClass]="{'invalid-textbox' :registerForm.submitted && !first_name.valid }">
+          <div *ngIf="registerForm.submitted && !first_name.valid">
+            <mat-error class="validation-message">This field is required</mat-error>
+          </div>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput #last_name="ngModel" [(ngModel)]="userService.selectedUser.last_name" name="last_name"
+            placeholder="Last Name" required [ngClass]="{'invalid-textbox' :registerForm.submitted && !last_name.valid }">
+          <div *ngIf="registerForm.submitted && !last_name.valid">
+            <mat-error class="validation-message">This field is required</mat-error>
+          </div>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email"
+            placeholder="Email" required [pattern]="emailRegex" [ngClass]="{'invalid-textbox' :registerForm.submitted && !email.valid }">
+          <div *ngIf="registerForm.submitted && email.errors">
+            <mat-error *ngIf="email?.errors.required" class="validation-message">This field is required.</mat-error>
+            <mat-error *ngIf="email?.errors.pattern" class="validation-message">Invalid email address.</mat-error>
+          </div>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password"
+            placeholder="Password" minlength="4" required [ngClass]="{'invalid-textbox' :registerForm.submitted && !password.valid }">
+          <div *ngIf="registerForm.submitted && password.errors">
+            <mat-error *ngIf="password?.errors.required" class="validation-message">This field is required.</mat-error>
+            <mat-error *ngIf="password?.errors.minlength" class="validation-message">Enter at least 6 characters.</mat-error>
+          </div>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button routerLink="/login">BACK</button>
+      <button mat-raised-button type="submit">REGISTER</button>
+    </form>
+  </mat-card-content>
+</div>
+<!-- Success message -->
+<div class="success" *ngIf="showSuccessMessage">
+  Registration Successful. Please check your email for the activation link!
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessage">
+  {{serverErrorMessage}}
+</div>

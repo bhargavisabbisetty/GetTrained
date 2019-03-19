@@ -1,0 +1,40 @@
+.slide-content-container{
+  width:96%;
+  margin: 1em auto auto auto;
+  display:flex;
+  background-color: #EBEBEB;
+}
+
+.left-column, .right-column{
+
+  width: 45%;
+  float: left;
+  margin: 0.5em auto 0.5em 1em;
+}
+
+.left-column-input{
+  width:95%;
+}
+
+.right-column-input{
+  width:85%;
+  margin-right:1em;
+}
+
+.content-list{
+  font-size: medium;
+}
+
+.save-slide-div{
+  height: 50%;
+}
+
+.delete-slide-div{
+  height: 50%;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+mat-icon-button{
+  color:#1A3741
+}

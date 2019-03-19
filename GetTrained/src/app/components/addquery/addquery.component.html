@@ -1,0 +1,50 @@
+<section class="mat-typography">
+  <h2>Send Feedback</h2>
+</section>
+<mat-divider></mat-divider>
+<mat-card-content>
+  <form #queryForm="ngForm" (ngSubmit)="queryForm.valid && onSubmit(queryForm)" class="my-form">
+    <div>
+      <mat-form-field class="full-width">
+        <mat-label>Query Title</mat-label>
+        <input matInput #query_title="ngModel" name="query_title" [(ngModel)]="queryService.selectedQuery.query_title"
+          placeholder="Query Title" required [ngClass]="{'invalid-textbox' :queryForm.submitted && !query_title.valid }">
+        <div *ngIf="queryForm.submitted && !query_title.valid">
+          <mat-error class="validation-message">This field is required</mat-error>
+        </div>
+      </mat-form-field>
+      &nbsp;
+      &nbsp;
+      <mat-form-field class="full-width">
+          <mat-label>Query Type</mat-label>
+          <mat-select #query_type="ngModel" name="query_type" [(ngModel)]="queryService.selectedQuery.query_type"
+            required>
+            <mat-option value="Request">Request</mat-option>
+            <mat-option value="Complain">Complain</mat-option>
+            <mat-option value="Feedback">Feedback</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="full-width-fields">
+        <mat-label>Query Content</mat-label>
+        <input matInput type="text" #query_content="ngModel" name="query_content" [(ngModel)]="queryService.selectedQuery.query_content"
+          placeholder="Query Content" required [ngClass]="{'invalid-textbox' :queryForm.submitted && !query_content.valid }">
+        <div *ngIf="queryForm.submitted && !query_content.valid">
+          <mat-error class="validation-message">This field is required</mat-error>
+        </div>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button class="query-buttons" routerLink="/home">BACK</button>
+    <button mat-raised-button class="query-buttons" type="submit">SUBMIT</button>
+  </form>
+</mat-card-content>
+<!-- Success message -->
+<div class="success" *ngIf="showSuccessMessage">
+  Feedback submitted successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessage">
+  {{serverErrorMessage}}
+</div>

@@ -1,0 +1,57 @@
+<mat-card-content>
+  <form #courseCreateFrom="ngForm" (ngSubmit)="courseCreateFrom.valid && onSubmit(courseCreateFrom)" class="course-create-form">
+    <section class="mat-typography">
+      <h2>Create Course</h2>
+    </section>
+    <mat-divider></mat-divider>
+    <div class="create-course-container">
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Course Title</mat-label>
+          <input matInput #course_title="ngModel" name="course_title" [(ngModel)]="courseService.selectedCourse.course_title"
+            placeholder="Course Title" required [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_title.valid }" #title>
+          <div *ngIf="courseCreateFrom.submitted && !course_title.valid">
+            <mat-error class="validation-message">This field is required</mat-error>
+          </div>
+        </mat-form-field>
+        &nbsp;
+        &nbsp;
+
+        <mat-form-field class="full-width">
+          <mat-select #course_category="ngModel" placeholder="Select Category" name="course_category" [(ngModel)]="courseService.selectedCourse.course_category"
+            required>
+            <mat-option *ngFor="let category of categories" [value]="category._id">{{category.category_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <div>
+        <mat-form-field class="full-width-fields">
+          <mat-label>Course Description</mat-label>
+          <input matInput #course_description="ngModel" name="course_description" [(ngModel)]="courseService.selectedCourse.course_description"
+            placeholder="Course Description" required [ngClass]="{'invalid-textbox' :courseCreateFrom.submitted && !course_description.valid }">
+          <div *ngIf="courseCreateFrom.submitted && !course_description.valid">
+            <mat-error class="validation-message">This field is required</mat-error>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width-fields">
+          <mat-select #course_learners="ngModel" placeholder="Select Users" name="course_learners" [(ngModel)]="courseService.selectedCourse.course_learners"
+            required multiple>
+            <mat-option *ngFor="let user of users" [value]="user.email">{{user.first_name}} {{user.last_name}} - {{user.email}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-raised-button color="primary" class="course-buttons" (click)="addContent()">ADD CONTENT</button>
+    <div *ngIf="num!==0 && num!==null">You have created {{ num }} slides</div>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <button mat-raised-button class="course-buttons" type="submit">PUBLISH COURSE</button>
+  </form>
+</mat-card-content>

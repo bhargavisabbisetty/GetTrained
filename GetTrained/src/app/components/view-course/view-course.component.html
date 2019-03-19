@@ -1,0 +1,39 @@
+ <div class="course-title">
+    <section class="mat-typography">
+      <h2>{{course_title}}</h2>
+    </section>
+    <section class="mat-typography">
+      <p>{{course_description}}</p>
+    </section>
+  </div>
+
+
+  <div class="slides">
+    <div class="text-div">
+      <div class="title">{{contents[current_page].title}}</div>
+      <div *ngIf="textflag" class={{textarea}} id='text_area'>
+        <li *ngFor="let  textcontent of contents[current_page].content">{{textcontent}}</li>
+      </div>
+    </div>
+
+    <div class="multimedia-div">
+      <div id="image" *ngIf="imageflag">
+        <img [src]="getImageURL(contents[current_page].image)">
+      </div>
+
+      <div id="video" *ngIf="videoflag">
+        <iframe [src]="getEmbedURL(contents[current_page].video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+<div id="empty-div"></div>
+
+<div class="slide-footer">
+  <div class="footer-button-group">
+    <button mat-button (click)="update()" class="footer-buttons">BACK</button>
+    <button mat-button [disabled]="isprevDisabled" class="footer-buttons" (click)="dec_page(current_page)">PREVIOUS</button>
+    <button mat-button [disabled]="isnextDisabled" class="footer-buttons" (click)="inc_page(current_page)">NEXT</button>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div> 
+      <br>
+      <mat-card>
+          <h2>User Feedback</h2>
+        <table mat-table [dataSource]="queries">
+  
+  
+          <ng-container matColumnDef="query_title">
+              <th mat-header-cell *matHeaderCellDef>QUERY TITLE</th>
+              <td mat-cell *matCellDef="let element">{{element.query_title}}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="query_content">
+              <th mat-header-cell *matHeaderCellDef>CONTENT</th>
+              <td mat-cell *matCellDef="let element">{{element.query_content}}</td>
+            </ng-container> 
+  
+            <ng-container matColumnDef="query_createdby">
+                <th mat-header-cell *matHeaderCellDef>CREATED BY</th>
+                <td mat-cell *matCellDef="let element">{{element.query_createdby}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="query_type">
+                <th mat-header-cell *matHeaderCellDef>TYPE</th>
+                <td mat-cell *matCellDef="let element">{{element.query_type}}</td>
+              </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    
+        </table>
+        
+      </mat-card>
+    </div>
