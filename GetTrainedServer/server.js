@@ -7,7 +7,8 @@ let express = require('express'),
     cors = require('cors');
 
 //got a mongoose connection to mongoDB database named GetTrained
-mongoose.connect('mongodb://get-trained-admin:iKrC632Y2akRIBHx@cluster0-shard-00-00-koc4n.mongodb.net:27017,cluster0-shard-00-01-koc4n.mongodb.net:27017,cluster0-shard-00-02-koc4n.mongodb.net:27017/get-trained?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true', {
+// mongoose.connect('mongodb://get-trained-admin:iKrC632Y2akRIBHx@cluster0-shard-00-00-koc4n.mongodb.net:27017,cluster0-shard-00-01-koc4n.mongodb.net:27017,cluster0-shard-00-02-koc4n.mongodb.net:27017/get-trained?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true', {
+mongoose.connect('mongodb://get-trained-admin:v9d4Z5sluVY2Z7Rw@cluster0-shard-00-00-koc4n.mongodb.net:27017,cluster0-shard-00-01-koc4n.mongodb.net:27017,cluster0-shard-00-02-koc4n.mongodb.net:27017/get-trained?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', {
     useNewUrlParser: true
 });
 mongoose.Promise = global.Promise;
